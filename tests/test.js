@@ -3,7 +3,7 @@ var express      = require('express')
 , cookieParser   = require('cookie-parser')
 , http           = require('http')
 , app            = express()
-, MemcachedStore = require('../lib/connect-memcached')(session);
+, MemcachedStore = require('../lib/connect-memjs')(session);
 
 app.use(cookieParser());
 app.use(session({
@@ -24,6 +24,14 @@ app.get('/', function(req, res){
     }
     res.send('Viewed <strong>' + req.session.views + '</strong> times.');
 });
+
+app.get('/del', function (req, res) {
+  req.session.regenerate(function (err) {
+    if (err) console.error(err)
+
+    res.send('Viewed <strong>' + req.session.views + '</strong> times.');
+  })
+})
 
 http.createServer(app).listen(9341, function() {
     console.log("Listening on %d", this.address().port);
