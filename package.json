@@ -1,6 +1,6 @@
 {
   "name": "connect-memjs",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Memcached session store for Connect",
   "keywords": [
     "memcached",
@@ -16,7 +16,7 @@
     "url": "https://github.com/diversario/connect-memjs"
   },
   "dependencies": {
-    "memjs": "diversario/memjs#v0.10.4"
+    "memjs": "diversario/memjs#v1.0.0"
   },
   "engines": {
     "node": ">=0.4.7"
